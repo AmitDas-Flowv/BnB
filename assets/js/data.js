@@ -2,22 +2,9 @@
    Brain & Bot Films — site content & data
    ------------------------------------------------------------
    THIS IS THE ONLY FILE YOU EDIT TO UPDATE CONTENT.
-   - Add/replace projects, team members, and Crystal's films here.
-   - VIDEO IDS: every reel item + project uses a Vimeo numeric id.
-     Right now they use a public demo id so playback is provably
-     working. Replace each `vimeo` id with Crystal's real Vimeo
-     video ids (the number at the end of a vimeo.com/XXXXXXXX url).
-   - IMAGES: currently hotlinked from the generation CDN so the
-     prototype renders immediately. Run scripts/fetch-assets.sh
-     locally to download them into /assets/img and this file will
-     be rewritten to local paths before you deploy.
    ============================================================ */
 
 const CDN = "https://d8j0ntlcm91z4.cloudfront.net/user_3EMg9WNOfCEmE3Y8LIFeYZg8yDx/";
-
-/* Temporary demo Vimeo id (a real, public video) — proves the
-   lightbox + embed work. Replace per-item with Crystal's ids. */
-const DEMO_VIMEO = "863362136";
 
 const IMG = {
   hero:    CDN + "hf_20260911_171758_85607aa0-cbf3-422b-ac8e-bf3e7a3df02e.png",
@@ -37,77 +24,85 @@ const SITE = {
   vimeo: "https://vimeo.com/user82535468",
   img: IMG,
 
-  /* ---- Projects (Work in progress) ------------------------- */
+  /* ---- LOGO -------------------------------------------------
+     The nav/footer render a faithful CSS stand-in of the B&B
+     mark. For the pixel-exact brand logo, drop the official
+     vector at assets/img/logo.svg (or .png) and set logoFile
+     below to its path — it will then be used everywhere. */
+  logoFile: null,   // e.g. "assets/img/logo.svg"
+
+  /* ---- Brand projects (current work in progress) -----------
+     These are the studio's WIP campaigns. `vimeo` points at a
+     representative film from Crystal's catalogue for now so the
+     player works — replace each with the real project film id
+     once available (or once you tell me which is which). */
   projects: [
     {
-      slug: "gap", idx: "01",
-      client: "Gap", type: "Fashion Film", year: "2025",
-      image: IMG.gap, vimeo: DEMO_VIMEO,
-      status: "In production",
-      summary: "A fashion film for the global clothing brand — clean, character-led and light-driven, translating everyday essentials into a piece of moving-image with a quiet, contemporary confidence.",
-      credits: [["Client","Gap"],["Service","Production"],["Category","Fashion Film"],["Year","2025"],["Status","In production"]],
-      stills: [IMG.gap, IMG.bts, IMG.hero],
+      slug:"gap", idx:"01", client:"Gap", type:"Fashion Film", year:"2025",
+      image:IMG.gap, vimeo:"1113175028", status:"In production",
+      summary:"A fashion film for the global clothing brand — clean, character-led and light-driven, translating everyday essentials into moving-image with quiet, contemporary confidence.",
+      credits:[["Client","Gap"],["Service","Production"],["Category","Fashion Film"],["Year","2025"],["Status","In production"]],
+      stills:[
+        {img:IMG.gap},
+        {box:"Additional still — model / product detail, warm daylight"},
+        {box:"Additional still — wide environment frame"},
+      ],
     },
     {
-      slug: "gymshark", idx: "02",
-      client: "Gymshark", type: "Brand Campaign", year: "2025",
-      image: IMG.gymshark, vimeo: DEMO_VIMEO,
-      status: "In production",
-      summary: "A high-energy brand campaign for the activewear label — motion, sweat and rhythm, built to feel visceral on screen while staying premium in its craft.",
-      credits: [["Client","Gymshark"],["Service","Production"],["Category","Brand Campaign"],["Year","2025"],["Status","In production"]],
-      stills: [IMG.gymshark, IMG.bts, IMG.hero],
+      slug:"gymshark", idx:"02", client:"Gymshark", type:"Brand Campaign", year:"2025",
+      image:IMG.gymshark, vimeo:"1113163679", status:"In production",
+      summary:"A high-energy brand campaign for the activewear label — motion, sweat and rhythm, built to feel visceral on screen while staying premium in its craft.",
+      credits:[["Client","Gymshark"],["Service","Production"],["Category","Brand Campaign"],["Year","2025"],["Status","In production"]],
+      stills:[
+        {img:IMG.gymshark},
+        {box:"Additional still — athlete mid-motion, rim light"},
+        {box:"Additional still — detail / texture frame"},
+      ],
     },
     {
-      slug: "infosys", idx: "03",
-      client: "Infosys", type: "Corporate Film", year: "2025",
-      image: IMG.infosys, vimeo: DEMO_VIMEO,
-      status: "In production",
-      summary: "A corporate film for the technology major — human, considered and precise, finding the story of people inside an enterprise at scale.",
-      credits: [["Client","Infosys"],["Service","Production"],["Category","Corporate Film"],["Year","2025"],["Status","In production"]],
-      stills: [IMG.infosys, IMG.bts, IMG.hero],
+      slug:"infosys", idx:"03", client:"Infosys", type:"Corporate Film", year:"2025",
+      image:IMG.infosys, vimeo:"1113163060", status:"In production",
+      summary:"A corporate film for the technology major — human, considered and precise, finding the story of people inside an enterprise at scale.",
+      credits:[["Client","Infosys"],["Service","Production"],["Category","Corporate Film"],["Year","2025"],["Status","In production"]],
+      stills:[
+        {img:IMG.infosys},
+        {box:"Additional still — interview / portrait setup"},
+        {box:"Additional still — environment / technology frame"},
+      ],
     },
     {
-      slug: "eyewear", idx: "04",
-      client: "Eyewear", type: "Product Film", year: "2025",
-      image: IMG.eyewear, vimeo: DEMO_VIMEO,
-      status: "In production",
-      summary: "A product film for an eyewear brand — macro texture, reflection and light, treating the object as sculpture.",
-      credits: [["Client","Eyewear — TBC"],["Service","Production"],["Category","Product Film"],["Year","2025"],["Status","In production"]],
-      stills: [IMG.eyewear, IMG.bts, IMG.hero],
+      slug:"eyewear", idx:"04", client:"Eyewear", type:"Product Film", year:"2025",
+      image:IMG.eyewear, vimeo:"1113162319", status:"In production",
+      summary:"A product film for an eyewear brand — macro texture, reflection and light, treating the object as sculpture.",
+      credits:[["Client","Eyewear — name TBC"],["Service","Production"],["Category","Product Film"],["Year","2025"],["Status","In production"]],
+      stills:[
+        {img:IMG.eyewear},
+        {box:"Additional still — macro product detail"},
+        {box:"Additional still — model wearing product"},
+      ],
     },
   ],
 
-  /* ---- Team ------------------------------------------------- */
+  /* ---- Team ------------------------------------------------
+     Boxes describe the photo needed for each placeholder. */
   team: [
     { slug:"crystal-carvalho", name:"Crystal Carvalho", role:"Founder & Producer", image:IMG.crystal, live:true },
-    { name:"", role:"Director", live:false },
-    { name:"", role:"Director of Photography", live:false },
-    { name:"", role:"Producer", live:false },
+    { name:"", role:"Director", live:false, box:"Photo — editorial portrait, dark background" },
+    { name:"", role:"Director of Photography", live:false, box:"Photo — editorial portrait, dark background" },
+    { name:"", role:"Producer", live:false, box:"Photo — editorial portrait, dark background" },
   ],
 
-  /* ---- Crystal's film reel (from her Vimeo) ----------------
-     Replace `id` with each real Vimeo video id. Leave `poster`
-     empty ("") to auto-pull the real Vimeo thumbnail; or set it
-     to a specific image. ------------------------------------- */
-  reel: [
-    { id: DEMO_VIMEO, title: "Fashion Film", cat: "Advertising", poster: IMG.gap },
-    { id: DEMO_VIMEO, title: "Brand Campaign", cat: "Advertising", poster: IMG.gymshark },
-    { id: DEMO_VIMEO, title: "Corporate Film", cat: "Branded Content", poster: IMG.infosys },
-    { id: DEMO_VIMEO, title: "Product Film", cat: "Advertising", poster: IMG.eyewear },
-    { id: DEMO_VIMEO, title: "Title Sequence", cat: "Film", poster: IMG.hero },
-    { id: DEMO_VIMEO, title: "Behind the Scenes", cat: "Documentary", poster: IMG.bts },
-  ],
-
-  credits: [
-    ["Leo Burnett","2015 – 2018"],
-    ["McCann","Senior Producer"],
-    ["Native Films","Production"],
-    ["Skylark Productions","Production"],
+  /* ---- Crystal's film reel — REAL Vimeo videos ------------
+     24 ids from her Vimeo catalogue. Titles + thumbnails are
+     fetched live from Vimeo (oEmbed) in the browser, so this
+     stays correct automatically. Add/remove ids to update. */
+  films: [
+    "1113175028","1113163679","1113163060","1113162319","1113162283","1113162245",
+    "1113162214","1113160584","1113159781","1113159658","1113159548","1113159427",
+    "1113158771","1113158687","1113157339","1113157305","1113157126","1113156939",
+    "1113156809","1113156105","1113155396","1113155117","1113155058","1113154992"
   ],
 };
 
-/* Vimeo thumbnail helper (works client-side; no API key needed). */
-function vimeoPoster(item){
-  if(item.poster) return item.poster;
-  return "https://vumbnail.com/" + item.id + "_large.jpg";
-}
+/* Immediate Vimeo thumbnail (no API key). oEmbed later upgrades it. */
+function vimeoPoster(id){ return "https://vumbnail.com/" + id + "_large.jpg"; }

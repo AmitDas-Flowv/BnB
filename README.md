@@ -31,18 +31,26 @@ Then open <http://localhost:8080>.
 Everything (projects, team, films, images, email) lives in
 **`assets/js/data.js`**. No other file needs editing for content changes.
 
-### Vimeo videos (important)
-Each project and each reel item references a Vimeo **numeric id** — the number at
-the end of a `vimeo.com/XXXXXXXX` URL. Right now they use one public **demo id**
-so playback + thumbnails are provably working.
+### Vimeo videos
+Crystal's **24 real films** (from her Vimeo catalogue) drive the reel on her
+page — see the `films` array in `data.js` (just video ids). Each film's **title
+and thumbnail are fetched live from Vimeo** (oEmbed) in the browser, so the reel
+stays correct automatically; add or remove an id to update it.
 
-**To wire Crystal's real films:** in `data.js`, replace each `vimeo:` /
-`id:` value with the real id. In the `reel` array, leave `poster: ""` to
-auto-pull the real Vimeo thumbnail, or set `poster` to a specific image.
+The four brand projects (Gap, Gymshark, Infosys, Eyewear) currently point their
+player at a representative film from the catalogue so playback works — replace
+each project's `vimeo:` id with its real project film once available (or tell me
+which film maps to which brand and I'll set them).
 
-> The build sandbox can't reach vimeo.com (network egress policy), so the real
-> ids couldn't be auto-fetched. Paste Crystal's video URLs (or make her Vimeo
-> profile public) and they'll be wired in exactly.
+### Logo
+The nav/footer show a faithful CSS stand-in of the B&B mark. For the **exact
+brand logo**, drop the official vector at `assets/img/logo.svg` and set
+`logoFile: "assets/img/logo.svg"` in `data.js` — it's then used everywhere.
+
+### Missing photos
+Anywhere a real photo is still needed (team portraits, extra project stills)
+shows a labelled **image box** describing the shot required — swap each for a
+real image in `data.js`.
 
 ### Images
 The prototype **hotlinks** generated images from a CDN so it renders instantly.
@@ -76,9 +84,11 @@ client's account/org, then reconnect the Vercel project to the new owner. The
 domain + DNS are unaffected.
 
 ## To do before launch
-- [ ] Replace demo Vimeo ids with Crystal's real film ids
+- [x] Wire Crystal's 24 real Vimeo films into the reel (live titles + thumbnails)
+- [ ] Map the 4 brand projects to their real project films (Gap/Gymshark/Infosys/Eyewear)
+- [ ] Drop in the exact B&B logo at `assets/img/logo.svg` + set `logoFile`
 - [ ] Replace Crystal's placeholder portrait with a real photograph
-- [ ] Drop in the real B&B logo SVG (currently a CSS wordmark)
+- [ ] Fill the labelled image boxes (team portraits, extra project stills)
 - [ ] Confirm the eyewear client name + project categories/years
 - [ ] Confirm contact email
 - [ ] Run `scripts/fetch-assets.sh` to localize images

@@ -76,10 +76,28 @@ p{color:var(--ink-dim);max-width:62ch}
   padding-block:16px;
   mix-blend-mode:normal;
 }
-.brand{display:flex;flex-direction:column;line-height:1;gap:3px}
-.brand .mono{font-family:var(--serif);font-size:26px;letter-spacing:.02em}
-.brand .mono b{font-weight:340}
-.brand .wordmark{font-size:8.5px;letter-spacing:.34em;color:var(--ink-dim);text-transform:uppercase}
+.brand{display:flex;align-items:center;line-height:1}
+.brand-svg{height:40px;width:auto}
+.brand-lockup{display:flex;flex-direction:column;gap:4px;align-items:flex-start}
+.brand .mono{
+  font-family:"Bodoni Moda",var(--serif);
+  font-weight:500;font-size:27px;letter-spacing:.01em;line-height:.9;
+  display:inline-flex;align-items:baseline;position:relative;
+}
+.brand .mono .amp{font-weight:400;font-style:italic;margin:0 .01em;font-size:.92em}
+.brand .mono .play{
+  display:inline-block;width:0;height:0;margin-left:2px;align-self:center;
+  border-left:8px solid var(--ink);border-top:5px solid transparent;border-bottom:5px solid transparent;
+  transform:translateY(1px);opacity:.95;
+}
+.brand .wordmark{font-size:8px;letter-spacing:.32em;color:var(--ink-dim);text-transform:uppercase}
+
+/* image placeholder box (for photos we don't have yet) */
+.img-box{display:flex;align-items:center;justify-content:center;text-align:center;
+  background:repeating-linear-gradient(135deg,rgba(239,227,210,.02) 0 12px,rgba(239,227,210,.045) 12px 24px);
+  border:1px dashed var(--line-strong)!important}
+.box-cap{font-size:11px;letter-spacing:.06em;color:var(--ink-faint);max-width:80%;line-height:1.5;padding:14px}
+.box-cap::before{content:"◇  Image";display:block;letter-spacing:.2em;text-transform:uppercase;font-size:10px;color:var(--ink-dim);margin-bottom:8px}
 .nav-links{display:flex;gap:34px;align-items:center}
 .nav-links a{
   font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink);
