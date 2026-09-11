@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact — Brain & Bot Films</title>
+  <meta name="description" content="Get in touch with Brain & Bot Films.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..500;1,9..144,300..400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body data-page="contact">
+  <header data-nav></header>
+
+  <section class="wrap contact-hero">
+    <div class="eyebrow reveal in"><span class="label">Contact</span><span class="rule" style="max-width:120px"></span></div>
+    <h1 class="display reveal in">Let’s make<br>something.</h1>
+    <div class="reveal in d1" style="margin-top:36px">
+      <a class="mail serif" id="mail" href="#">hello@brainandbot.films</a>
+    </div>
+    <div class="contact-rows">
+      <div class="col reveal d1">
+        <div class="label">General &amp; New Business</div>
+        <a id="mail2" href="#">hello@brainandbot.films</a>
+      </div>
+      <div class="col reveal d2">
+        <div class="label">Social</div>
+        <a href="https://www.instagram.com/brain.and.bot/" target="_blank" rel="noopener">Instagram — @brain.and.bot</a>
+        <a href="https://vimeo.com/user82535468" target="_blank" rel="noopener">Vimeo — Crystal Carvalho</a>
+      </div>
+      <div class="col reveal d3">
+        <div class="label">Studio</div>
+        <a href="studio.html">About Brain &amp; Bot</a>
+        <a href="work.html">Selected work</a>
+      </div>
+    </div>
+  </section>
+
+  <footer data-footer></footer>
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/site.js"></script>
+  <script>document.addEventListener('DOMContentLoaded',function(){
+    ['mail','mail2'].forEach(function(id){var e=document.getElementById(id);if(e){e.textContent=SITE.email;e.href='mailto:'+SITE.email;}});
+  });</script>
+</body>
+</html>

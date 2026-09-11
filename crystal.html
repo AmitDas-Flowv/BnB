@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Crystal Carvalho — Brain & Bot Films</title>
+  <meta name="description" content="Crystal Carvalho — Founder & Producer, Brain & Bot Films. A decade across advertising, production and branded content.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..500;1,9..144,300..400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body data-page="studio">
+  <header data-nav></header>
+
+  <section class="wrap founder-head">
+    <div class="crumb reveal in"><a href="studio.html">Studio</a> / Team</div>
+    <h1 class="founder-name display reveal in">Crystal<br>Carvalho</h1>
+    <div class="sub reveal in d1" style="margin-top:22px"><span class="label">Founder &amp; Producer</span></div>
+  </section>
+
+  <section class="wrap">
+    <div class="founder-split">
+      <div class="portrait reveal"><img id="portrait" alt="Crystal Carvalho"></div>
+      <div class="bio reveal d1">
+        <p class="lead">Crystal brings a decade of experience across advertising, production and branded content — from developing the right creative approach to budgeting, negotiations, shoot management and post.</p>
+        <p>She began her career in 2015 at Leo Burnett, spending three years building her foundation in advertising and production, then moved to McCann as a Senior Producer for three years — evaluating scripts, collaborating with directors and production houses, negotiating budgets and managing projects from pre-production through delivery.</p>
+        <p>She later expanded her experience through Native Films and Skylark Productions, working across the production-house ecosystem and different creative teams. In August 2025, she brought it all together to establish Brain &amp; Bot Films.</p>
+        <ul class="cred-list">
+          <li><span>Leo Burnett</span><span class="yr">2015 – 2018</span></li>
+          <li><span>McCann</span><span class="yr">Senior Producer</span></li>
+          <li><span>Native Films</span><span class="yr">Production</span></li>
+          <li><span>Skylark Productions</span><span class="yr">Production</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-pad">
+    <div class="wrap">
+      <div class="rule reveal" style="margin-bottom:clamp(44px,6vw,80px)"></div>
+      <div class="eyebrow reveal"><span class="label">Selected Films</span></div>
+      <div class="section-head reveal">
+        <h2 class="serif">The reel</h2>
+        <a class="label" href="" id="vimeo-link" target="_blank" rel="noopener" style="color:var(--ink-dim)">Vimeo →</a>
+      </div>
+      <div class="reel-grid" data-reel></div>
+    </div>
+  </section>
+
+  <footer data-footer></footer>
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/site.js"></script>
+  <script>document.addEventListener('DOMContentLoaded',function(){
+    var p=document.getElementById('portrait'); if(p)p.src=SITE.img.crystal;
+    var v=document.getElementById('vimeo-link'); if(v)v.href=SITE.vimeo;
+  });</script>
+</body>
+</html>
