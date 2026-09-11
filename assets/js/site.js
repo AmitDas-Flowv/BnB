@@ -5,15 +5,18 @@
   "use strict";
 
   /* ---------- logo ------------------------------------------ */
-  function logoMarkup(){
-    if (typeof SITE !== "undefined" && SITE.logoFile){
-      return `<img class="brand-svg" src="${SITE.logoFile}" alt="Brain & Bot Films">`;
-    }
-    /* Faithful CSS stand-in of the B&B mark (swap via SITE.logoFile). */
-    return `<span class="brand-lockup">
+  /* Faithful CSS stand-in of the B&B mark (used until SITE.logoFile is set,
+     and as an automatic fallback if the logo file fails to load). */
+  const CSS_LOCKUP = `<span class="brand-lockup">
       <span class="mono">B<span class="amp">&amp;</span>B<i class="play" aria-hidden="true"></i></span>
       <span class="wordmark">Brain &amp; Bot Films</span>
     </span>`;
+  window.__bbLockup = CSS_LOCKUP;
+  function logoMarkup(){
+    if (typeof SITE !== "undefined" && SITE.logoFile){
+      return `<img class="brand-svg" src="${SITE.logoFile}" alt="Brain & Bot Films" onerror="this.outerHTML=window.__bbLockup">`;
+    }
+    return CSS_LOCKUP;
   }
   function brand(){
     return `<a class="brand" href="index.html" aria-label="Brain & Bot Films — home">${logoMarkup()}</a>`;
@@ -29,13 +32,15 @@
       <button class="nav-toggle" aria-label="Menu" data-toggle><span></span><span></span><span></span></button>
       <nav class="nav-links" data-links>
         <a href="work.html" class="${active==='work'?'active':''}">Work</a>
+        <a href="index.html#team" class="${active==='team'?'active':''}">Team</a>
         <a href="studio.html" class="${active==='studio'?'active':''}">Studio</a>
         <a href="contact.html" class="${active==='contact'?'active':''}">Contact</a>
       </nav>`;
     const toggle = el.querySelector("[data-toggle]");
     const links = el.querySelector("[data-links]");
-    toggle.addEventListener("click", ()=>{ links.classList.toggle("open"); el.classList.toggle("menu-open"); });
-    links.querySelectorAll("a").forEach(a=>a.addEventListener("click",()=>{ links.classList.remove("open"); el.classList.remove("menu-open"); }));
+    const setMenu = (open)=>{ links.classList.toggle("open",open); el.classList.toggle("menu-open",open); document.body.style.overflow = open ? "hidden" : ""; };
+    toggle.addEventListener("click", ()=> setMenu(!links.classList.contains("open")) );
+    links.querySelectorAll("a").forEach(a=>a.addEventListener("click",()=> setMenu(false) ));
     const onScroll = ()=> el.classList.toggle("solid", window.scrollY > 40);
     onScroll(); window.addEventListener("scroll", onScroll, {passive:true});
   }
