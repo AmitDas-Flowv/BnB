@@ -29,7 +29,8 @@ const SITE = {
      mark. For the pixel-exact brand logo, drop the official
      vector at assets/img/logo.svg (or .png) and set logoFile
      below to its path — it will then be used everywhere. */
-  logoFile: null,   // e.g. "assets/img/logo.svg"
+  logoFile: "assets/img/logo-mark.png",       // nav monogram (transparent)
+  logoFileFull: "assets/img/logo.png",         // full lockup for the footer
 
   /* ---- Brand projects (current work in progress) -----------
      These are the studio's WIP campaigns. `vimeo` points at a
