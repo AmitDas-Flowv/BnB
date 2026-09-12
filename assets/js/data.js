@@ -8,7 +8,7 @@ const CDN = "https://d8j0ntlcm91z4.cloudfront.net/user_3EMg9WNOfCEmE3Y8LIFeYZg8y
 
 const IMG = {
   hero:    CDN + "hf_20260911_171758_85607aa0-cbf3-422b-ac8e-bf3e7a3df02e.png",
-  crystal: CDN + "hf_20260911_171147_07758b95-5a92-48e4-9781-96e9e040ca38.png",
+  crystal: "assets/img/Crystal.jpg",           // Crystal's real photo (founder page + team card)
   gap:     CDN + "hf_20260911_171147_a7fc703d-53bd-4f21-9ea6-06bf9efbd314.png",
   gymshark:CDN + "hf_20260911_171147_b0859fc1-eedb-4217-b0a9-d769af0ffeaf.png",
   infosys: CDN + "hf_20260911_171147_d41cbfab-1d50-4feb-8ad5-38b566a3f1c5.png",
