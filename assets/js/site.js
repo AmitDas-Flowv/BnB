@@ -68,6 +68,7 @@
           </div>
         </div>
       </div>
+      ${SITE.logoFileFull ? `<div class="footer-logo"><img src="${SITE.logoFileFull}" alt="Brain & Bot Films" onerror="this.parentNode.remove()"></div>` : ""}
       <div class="footer-bottom">
         <span>© ${yr} Brain &amp; Bot Films — A production house.</span>
         <span>Think. Create. Produce.</span>
